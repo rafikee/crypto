@@ -18,6 +18,8 @@ IfNotifications.sendRichNotification.setImageUrl(payload.image_url)
 - locate the api key for IFTTT under your account
     - go to My services
     - then choose Webhooks and go to settings
+
+## Configure GCP
 - Create a Google Cloud Project that can do billing
 - Enable the following APIs in the project
     - Google Sheets
@@ -44,8 +46,10 @@ IfNotifications.sendRichNotification.setImageUrl(payload.image_url)
     - Make sure to set the right timezone
     - for the execution use the URL from the cloud function
 
-Deploy using the following command: 
+## Deploy
 
 *Make sure to update the project_id*
+
+*Ensure that you have setup gcloud from the command line and it points to your correct GCP project*
 
 `gcloud functions deploy get_crypto --set-env-vars project_id=home-automation-272816 --runtime python39 --trigger-http --allow-unauthenticated`
