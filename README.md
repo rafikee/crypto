@@ -48,8 +48,8 @@ IfNotifications.sendRichNotification.setImageUrl(payload.image_url)
 
 ## Deploy
 
-*Make sure to update the project_id*
+*Make sure to update the project id*
 
 *Ensure that you have setup gcloud from the command line and it points to your correct GCP project*
 
-`gcloud functions deploy get_crypto --set-env-vars project_id=home-automation-272816 --runtime python39 --trigger-http --allow-unauthenticated`
+`gcloud functions deploy get_crypto --set-env-vars --project=xxxx --runtime python39 --trigger-http --allow-unauthenticated`
