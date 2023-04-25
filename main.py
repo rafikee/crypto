@@ -77,9 +77,14 @@ def get_crypto(request):
             continue
 
         # grab some information about the coin
-        x = x[0]
-        request_price = x.get("current_price", None)
-        symbol = x.get("symbol", None)
+        try:
+            x = x[0]
+            request_price = x.get("current_price", None)
+            symbol = x.get("symbol", None)
+        except:
+            error = True
+            error_coins.append(coin)
+            continue
 
         # if anything is missing then make note of it and skip this coin
         if not request_price or not symbol:
@@ -100,11 +105,10 @@ def get_crypto(request):
         prices.append(f"{symbol}: {price}")
 
     # create one big string for all the prices that we'll use to pipe into the variable to IFTTT
-    if prices:
-        value = " | ".join(prices)
-        if error:
-            value += ". FYI these coins failed: "
-            value += ", ".join(error_coins)
+    value = " | ".join(prices)
+    if error:
+        value += ". FYI these coins failed: "
+        value += ", ".join(error_coins)
 
     # at this point if value is missing something went wrong. make note of it
     if not value:
