@@ -48,7 +48,7 @@ IfNotifications.sendRichNotification.setImageUrl(payload.image_url)
 
 ## Deploy
 
-*Make sure to update the project ids below*
+*Make sure to update the project ids below. It should be the same for both variables*
 
 *Ensure that you have setup gcloud from the command line and it points to your correct GCP project*
 
